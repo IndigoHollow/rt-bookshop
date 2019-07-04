@@ -1,0 +1,42 @@
+.booksItem {
+  width: 350px;
+  height: 536px;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  overflow: hidden;
+  color: #017bff;
+  cursor: pointer;
+}
+
+.bookInfo,
+.bookRating {
+  width: 100%;
+  border-top: 1px solid #d8d8d8;
+  padding: 19px 21px 23px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.bookImage {
+  width: 100%;
+  height: 350px;
+}
+
+.bookInfo {
+  height: 99px;
+}
+
+.bookTitle {
+  font: bold 17px Arial;
+  margin: 0 0 15px;
+}
+
+.bookDescription {
+  font: normal 14px Arial;
+}
+
+.bookRating {
+  height: 87px;
+  font: normal 14px Arial;
+  background: #f7f7f7;
+}

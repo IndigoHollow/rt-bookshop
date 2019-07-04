@@ -1,0 +1,30 @@
+.booksWrapper {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+.booksWrapper > a > div {
+  flex-basis: 32%;
+  margin: 0 25px 30px 0;
+}
+
+.booksWrapper > a:nth-of-type(3n+3) > div {
+  margin-right: 0;
+}
+
+.booksWrapper a {
+  text-decoration: none;
+}
+
+@media(max-width: 1108px) {
+  .booksWrapper {
+    justify-content: center;
+  }
+
+  .booksWrapper > a:nth-of-type(3n+3) > div {
+    margin-right: 25px;
+  }
+}

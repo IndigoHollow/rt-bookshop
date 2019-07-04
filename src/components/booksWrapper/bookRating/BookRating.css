@@ -1,0 +1,22 @@
+.rating {
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100px;
+  margin: 7px 0 0;
+}
+
+.fa-star {
+  color: #ababab;
+  cursor: pointer;
+}
+
+.fa-star:hover {
+  color: #ffd700;
+}
+
+.checked {
+  color: #ffd700;
+}
