@@ -1,6 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import './BookRating.css';
+const Rating = styled.div`
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100px;
+  margin: 7px 0 0;
+`;
+
+const Star = styled.div`
+  color: ${props => props.checked ? '#ffd700' : '#ababab'};
+  cursor: pointer;
+  &:hover {
+    color: #ffd700;
+  }
+`;
 
 export default class BookRating extends React.Component {
   constructor(props) {
@@ -11,7 +28,7 @@ export default class BookRating extends React.Component {
     }
   }
 
-  renderStars = () => (new Array(5)).fill(true).map((x, i) => (<div onClick={() => this.handleStarClick(i)} className={`fa fa-star ${i < (this.state.rating || this.props.rating) ? 'checked' : ''}`} key={i} />));
+  renderStars = () => (new Array(5)).fill(true).map((x, i) => (<Star className="fa fa-star" checked={i < (this.state.rating || this.props.rating)} onClick={() => this.handleStarClick(i)} key={i} />));
 
   handleStarClick = index => {
     window.location.pathname === '/edit-book'
@@ -24,7 +41,7 @@ export default class BookRating extends React.Component {
 
   render () {
     return (
-      <div className="rating">{this.renderStars()}</div>
+      <Rating className="rating">{this.renderStars()}</Rating>
     );
   }
 }

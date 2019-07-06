@@ -3,20 +3,28 @@ import ReactDOM from 'react-dom';
 import { connect, Provider } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from './history';
+import styled from 'styled-components';
 
 import { store } from './store';
 import * as actions from './actions';
-
-import './index.css';
 
 import TopMenu from './components/topMenu/TopMenu';
 import BooksWrapper from './components/booksWrapper/BooksWrapper';
 import EditBook from './components/editBook/EditBook';
 
+const AppWrapper = styled.div`
+  width: 1108px;
+  min-width: 320px;
+  margin: 0 auto;
+  @media(max-width: 1108px) {
+    width: 100%;
+  }
+`;
+
 class App extends React.Component {
   render () {
     return (
-      <div className="App">
+      <AppWrapper className="App">
         <TopMenu />
         <Switch>
           <Route path="/" exact render={(routeProps) => ( <BooksWrapper books={this.props.books} /> )} />
@@ -31,14 +39,13 @@ class App extends React.Component {
             />
           )} />
         </Switch>
-      </div>
+      </AppWrapper>
     )
   }
 }
 
 // connect store with component
 let mapStateToProps = state => {
-    console.log('STATE:', state);
     return {
       books: state.books,
       lastBookId: state.books[state.books.length-1] && state.books[state.books.length-1].id,
