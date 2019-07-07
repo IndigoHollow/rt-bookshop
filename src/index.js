@@ -16,6 +16,7 @@ const AppWrapper = styled.div`
   width: 1108px;
   min-width: 320px;
   margin: 0 auto;
+  font-family: Roboto;
   @media(max-width: 1108px) {
     width: 100%;
   }

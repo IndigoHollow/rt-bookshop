@@ -1,6 +1,7 @@
 import React from 'react';
 import history from './../../history';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 import BookRating from './../booksWrapper/bookRating/BookRating';
 
@@ -8,6 +9,9 @@ const EditBookWrapper = styled.div`
   width: 680px;
   margin: 0 auto;
   text-align: left;
+  @media(max-width: 1108px) {
+    width: 100%
+  }
 `;
 
 const ChangeButtons = styled.div`
@@ -20,21 +24,28 @@ const ChangeButtons = styled.div`
   cursor: pointer;
 `;
 
-const RemoveButton = styled.div`
-  width: auto;
-  height: 37px;
-  line-height: 37px;
-  padding: 0 15px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #ff0000;
+const RemoveButton = styled(Button)`
+  && {
+    width: auto;
+    height: 37px;
+    line-height: 37px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #FF0000;
+    :hover {
+      color: #666666;
+    }
+  }
 `;
 
 const EditSaveAddButton = styled(RemoveButton)`
-  background-color: ${props => props.green ? '#028102 !important' : '#017bff'};
-  margin-right: 30px;
+  && {
+    background-color: ${props => props.green ? '#028102 !important' : '#017bff'};
+    margin-right: 30px;
+  }
 `;
 
 const FieldSection = styled.div`
