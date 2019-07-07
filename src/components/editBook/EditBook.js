@@ -161,9 +161,9 @@ export default class EditBook extends React.Component {
 
     let newBook = {
       id: this.props.lastBookId + 1,
-      title,
-      img,
-      description,
+      title: title || 'no title',
+      img: img || 'https://picsum.photos/350/350?10',
+      description: description || 'no description',
       author,
       publisher,
       code,

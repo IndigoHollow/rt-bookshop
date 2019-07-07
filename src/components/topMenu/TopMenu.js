@@ -24,22 +24,22 @@ const MenuItem = styled.li`
   }
 `;
 
-export default class TopMenu extends React.Component {
-  render () {
-    return (
-      <Menu className="topMenu">
-        <ul>
-          <MenuItem key={0} className="active"><Link to="/">Главная</Link></MenuItem>
-          <MenuItem key={1}>
-            <Link to={{
-              pathname: '/edit-book',
-              state: {
-                status: 'add'
-              }
-            }}>Добавить книгу</Link>
-          </MenuItem>
-        </ul>
-      </Menu>
-    );
-  }
+const TopMenu = () => {
+  return (
+    <Menu className="topMenu">
+      <ul>
+        <MenuItem key={0} className="active"><Link to="/">Главная</Link></MenuItem>
+        <MenuItem key={1}>
+          <Link to={{
+            pathname: '/edit-book',
+            state: {
+              status: 'add'
+            }
+          }}>Добавить книгу</Link>
+        </MenuItem>
+      </ul>
+    </Menu>
+  );
 }
+
+export default TopMenu;

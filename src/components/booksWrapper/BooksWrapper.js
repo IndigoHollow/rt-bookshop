@@ -32,18 +32,18 @@ const BooksListWrapper = styled.div`
   }
 `;
 
-export default class BooksWrapper extends React.Component {
-  render () {
-    return (
-      <BooksListWrapper className="booksWrapper">
-        {this.props.books && this.props.books.map((book, index) => <Link key={index} to={{
-          pathname: '/edit-book',
-          state: {
-            bookInfo: this.props.books[index],
-            status: 'edit'
-          }
-        }}><BooksItem key={index} bookInfo={this.props.books[index]} editIndex={index} /></Link>)}
-      </BooksListWrapper>
-    );
-  }
+const BooksWrapper = (props) => {
+  return (
+    <BooksListWrapper className="booksWrapper">
+      {props.books && props.books.map((book, index) => <Link key={index} to={{
+        pathname: '/edit-book',
+        state: {
+          bookInfo: props.books[index],
+          status: 'edit'
+        }
+      }}><BooksItem key={index} bookInfo={props.books[index]} editIndex={index} /></Link>)}
+    </BooksListWrapper>
+  );
 }
+
+export default BooksWrapper;

@@ -42,20 +42,20 @@ const BookDescription = styled.div`
   font: normal 14px Arial;
 `;
 
-export default class BooksItem extends React.Component {
-  render () {
-    return (
-      <ItemWrapper className="booksItem">
-        <BookImage className="bookImage"><img src={this.props.bookInfo.img} alt="book" /></BookImage>
-        <BookInfo className="bookInfo">
-          <BookTitle className="bookTitle">{this.props.bookInfo.title}</BookTitle>
-          <BookDescription className="bookDescription">{this.props.bookInfo.description}</BookDescription>
-        </BookInfo>
-        <RatingWrapper className="bookRating">
-          Rating:
-          <BookRating rating={this.props.bookInfo.rating} />
-        </RatingWrapper>
-      </ItemWrapper>
-    );
-  }
+const BooksItem = (props) => {
+  return (
+    <ItemWrapper className="booksItem">
+      <BookImage className="bookImage"><img src={props.bookInfo.img} alt="book" /></BookImage>
+      <BookInfo className="bookInfo">
+        <BookTitle className="bookTitle">{props.bookInfo.title}</BookTitle>
+        <BookDescription className="bookDescription">{props.bookInfo.description}</BookDescription>
+      </BookInfo>
+      <RatingWrapper className="bookRating">
+        Rating:
+        <BookRating rating={props.bookInfo.rating} />
+      </RatingWrapper>
+    </ItemWrapper>
+  );
 }
+
+export default BooksItem;
