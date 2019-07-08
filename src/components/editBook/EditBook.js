@@ -78,7 +78,7 @@ const FieldSection = styled.div`
   }
 `;
 
-export default class EditBook extends React.Component {
+export default class EditBook extends React.PureComponent {
   constructor(props) {
     super(props);
 
