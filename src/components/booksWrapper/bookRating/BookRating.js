@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withState } from 'recompose';
 
 const Rating = styled.div`
   display: -webkit-flex;
@@ -19,29 +20,19 @@ const Star = styled.div`
   }
 `;
 
-export default class BookRating extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      rating: null,
+const BookRating = ({ratingLocal, setRatingLocal, rating, setRating}) => {
+  const handleStarClick = index => {
+    if (window.location.pathname === '/edit-book') {
+      setRatingLocal(index + 1);
+      setRating(index + 1);
     }
   }
 
-  renderStars = () => (new Array(5)).fill(true).map((x, i) => (<Star className="fa fa-star" checked={i < (this.state.rating || this.props.rating)} onClick={() => this.handleStarClick(i)} key={i} />));
+  const renderStars = () => (new Array(5)).fill(true).map((x, i) => (<Star className="fa fa-star" checked={i < (ratingLocal || rating)} onClick={() => handleStarClick(i)} key={i} />));
 
-  handleStarClick = index => {
-    window.location.pathname === '/edit-book'
-    && (
-      this.setState({
-        rating: index + 1,
-      }, this.props.setRating(index + 1))
-    );
-  }
-
-  render () {
-    return (
-      <Rating className="rating">{this.renderStars()}</Rating>
-    );
-  }
+  return (
+    <Rating className="rating">{renderStars()}</Rating>
+  );
 }
+
+export default withState('ratingLocal', 'setRatingLocal', null)(BookRating);

@@ -36,7 +36,8 @@ const RemoveButton = styled(Button)`
     color: #FFFFFF;
     background-color: #FF0000;
     :hover {
-      color: #666666;
+      color: #F0F0F0;
+      background-color: #FF0000;
     }
   }
 `;
@@ -45,6 +46,9 @@ const EditSaveAddButton = styled(RemoveButton)`
   && {
     background-color: ${props => props.green ? '#028102 !important' : '#017bff'};
     margin-right: 30px;
+    :hover {
+      background-color: #017bff;
+    }
   }
 `;
 
@@ -81,7 +85,7 @@ export default class EditBook extends React.Component {
     const checkVar = this.props.status !== 'add' && this.props.bookInfo;
 
     this.state = {
-      editMode: this.props.status === 'add' ? false : true,
+      editMode: this.props.status !== 'add',
       id: (checkVar && this.props.bookInfo.id) || null,
       title: (checkVar && this.props.bookInfo.title) || null,
       img: (checkVar && this.props.bookInfo.img) || null,

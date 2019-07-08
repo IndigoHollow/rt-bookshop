@@ -42,17 +42,17 @@ const BookDescription = styled.div`
   font: normal 14px Arial;
 `;
 
-const BooksItem = (props) => {
+const BooksItem = ({bookInfo}) => {
   return (
     <ItemWrapper className="booksItem">
-      <BookImage className="bookImage"><img src={props.bookInfo.img} alt="book" /></BookImage>
+      <BookImage className="bookImage"><img src={bookInfo.img} alt="book" /></BookImage>
       <BookInfo className="bookInfo">
-        <BookTitle className="bookTitle">{props.bookInfo.title}</BookTitle>
-        <BookDescription className="bookDescription">{props.bookInfo.description}</BookDescription>
+        <BookTitle className="bookTitle">{bookInfo.title}</BookTitle>
+        <BookDescription className="bookDescription">{bookInfo.description}</BookDescription>
       </BookInfo>
       <RatingWrapper className="bookRating">
         Rating:
-        <BookRating rating={props.bookInfo.rating} />
+        <BookRating rating={bookInfo.rating} />
       </RatingWrapper>
     </ItemWrapper>
   );

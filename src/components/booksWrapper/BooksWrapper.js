@@ -32,16 +32,16 @@ const BooksListWrapper = styled.div`
   }
 `;
 
-const BooksWrapper = (props) => {
+const BooksWrapper = ({books}) => {
   return (
     <BooksListWrapper className="booksWrapper">
-      {props.books && props.books.map((book, index) => <Link key={index} to={{
+      {books && books.map((book, index) => <Link key={index} to={{
         pathname: '/edit-book',
         state: {
-          bookInfo: props.books[index],
+          bookInfo: books[index],
           status: 'edit'
         }
-      }}><BooksItem key={index} bookInfo={props.books[index]} editIndex={index} /></Link>)}
+      }}><BooksItem key={index} bookInfo={books[index]} editIndex={index} /></Link>)}
     </BooksListWrapper>
   );
 }
