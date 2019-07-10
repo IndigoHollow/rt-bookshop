@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withState } from 'recompose';
+import { withState, compose, pure } from 'recompose';
 
 const Rating = styled.div`
   display: -webkit-flex;
@@ -35,4 +35,4 @@ const BookRating = ({ratingLocal, setRatingLocal, rating, setRating}) => {
   );
 }
 
-export default withState('ratingLocal', 'setRatingLocal', null)(BookRating);
+export default compose(pure, withState('ratingLocal', 'setRatingLocal', null))(BookRating);
